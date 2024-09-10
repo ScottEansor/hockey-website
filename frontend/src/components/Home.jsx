@@ -22,7 +22,7 @@ export default function Home() {
       {/* Image - Positioned to the right */}
       <img
         className="img-fluid rounded-circle"
-        src={image}
+        // src={image}
         alt="Coaching"
         style={{ maxWidth: "40%" }}
       />

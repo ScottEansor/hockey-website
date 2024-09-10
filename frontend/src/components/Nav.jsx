@@ -12,10 +12,10 @@ export default function Nav() {
         {/* Add a class to apply gap through CSS */}
         <div className="d-flex ms-auto nav-options">
           <a href="#" className="nav-link">
-            Schedule
+            About
           </a>
           <a href="#" className="nav-link">
-            About
+            Schedule Now
           </a>
           <a href="#" className="nav-link">
             Contact
