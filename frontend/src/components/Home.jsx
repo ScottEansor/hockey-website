@@ -11,7 +11,11 @@ export default function Home() {
       {/* Title Container - Positioned to the left */}
       <div className="title-container text-start d-flex flex-column gap-2">
         <h1 className="display-4">Eansor Coaching</h1>
-        <h3>Hockey skills training out of Steamboat Springs, Colorado</h3>
+        <h3>Hockey skills training</h3>
+        <h5>
+          <i className="location-icon bi bi-geo-alt-fill me-2"></i> Steamboat
+          Springs, Colorado
+        </h5>
         <button className="btn btn-primary">More About</button>
       </div>
 

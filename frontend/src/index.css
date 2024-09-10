@@ -2,3 +2,8 @@
 .nav-options {
   gap: 1rem; 
 }
+
+/* Home custom CSS */
+.location-icon{
+  color: #007bff;
+}
