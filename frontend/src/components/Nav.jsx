@@ -20,6 +20,9 @@ export default function Nav() {
           <a href="#" className="nav-link">
             Contact
           </a>
+          <a href="#" className="nav-link">
+            Camp
+          </a>
         </div>
       </div>
     </nav>
