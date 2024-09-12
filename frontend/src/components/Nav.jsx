@@ -5,7 +5,7 @@ export default function Nav() {
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="title navbar-brand" href="#">
           {/* <img src="" alt="Logo" width="30" height="24" className="d-inline-block align-text-top" /> */}
           Eansor Coaching
         </a>
