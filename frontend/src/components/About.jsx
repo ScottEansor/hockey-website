@@ -1,7 +1,7 @@
 import React from "react";
-import image1 from "../assets/2HRA6KN.jpg"; // Update with correct path
-import image2 from "../assets/2HRA6KN.jpg"; // Update with correct path
-import image3 from "../assets/2HRA6KN.jpg"; // Update with correct path
+import image1 from "../assets/2017-09-13_5DMk3_IMG_00952.jpg"; // Update with correct path
+import image2 from "../assets/usa.jpg"; // Update with correct path
+import image3 from "../assets/ac22022ba839717edde299a38438cab7.jpg"; // Update with correct path
 
 export default function About() {
   return (
@@ -13,7 +13,7 @@ export default function About() {
       {/* Section 1 - Text on Left, Image on Right */}
       <div className="row align-items-center d-flex flex-md-row">
         <div className="col-md-6 d-flex flex-column text-start">
-          <div className="rounded about p-4">
+          <div className="p-4">
             I'm Scott Eansor, and I offer private and small group skill coaching
             in Steamboat Springs, specializing in skating, skills training,
             hockey IQ, and more. With my personal hockey background, skill set,
@@ -36,7 +36,7 @@ export default function About() {
 
       {/* Section 2 - Image on Left, Text on Right */}
       <div className="row align-items-center d-flex flex-column flex-md-row-reverse">
-        <div className="about rounded col-md-6 d-flex flex-column text-start p-4">
+        <div className="col-md-6 d-flex flex-column text-start p-4">
           <h2 className="text-center">Background</h2>
           <ul className="mt-3">
             <li>Captain of WHL/CHL Championship team</li>
@@ -62,7 +62,7 @@ export default function About() {
 
       {/* Section 3 - Text on Left, Image on Right */}
       <div className="row align-items-center d-flex flex-column flex-md-row">
-        <div className="about rounded col-md-6 d-flex flex-column text-start p-4">
+        <div className="col-md-6 d-flex flex-column text-start p-4">
           <h2 className="text-center mb-3">Pricing</h2>
           <h5>Howelsen Hill ice arena private session</h5>
           <ul className="mt-2">

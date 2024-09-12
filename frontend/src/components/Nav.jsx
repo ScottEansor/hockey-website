@@ -1,28 +1,30 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid">
         <a className="title navbar-brand" href="#">
-          {/* <img src="" alt="Logo" width="30" height="24" className="d-inline-block align-text-top" /> */}
           Eansor Coaching
         </a>
-        {/* Add a class to apply gap through CSS */}
         <div className="d-flex ms-auto nav-options">
-          <a href="#" className="nav-link">
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+          <Link to="/about" className="nav-link">
             About
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/schedule" className="nav-link">
             Schedule Now
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/contact" className="nav-link">
             Contact
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/camp" className="nav-link">
             Camp
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
