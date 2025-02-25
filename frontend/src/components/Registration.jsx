@@ -43,14 +43,14 @@ export default function Registration() {
         {/* Second Parent/Guardian First Name (non-required) */}
         <input
           type="text"
-          className="form-control"
+          className="form-control bg-light"
           placeholder="Second Parent/Guardian First Name"
         />
 
         {/* Second Parent/Guardian Last Name (non-required) */}
         <input
           type="text"
-          className="form-control"
+          className="form-control bg-light"
           placeholder="Second Parent/Guardian Last Name"
         />
 
@@ -72,7 +72,7 @@ export default function Registration() {
         <input
           type="tel"
           className="form-control"
-          placeholder="Primary Parent/Guardian Cell Phone"
+          placeholder="Primary Cell Phone"
           required
         />
 
@@ -80,14 +80,14 @@ export default function Registration() {
         <input
           type="email"
           className="form-control"
-          placeholder="Primary Parent/Guardian Email"
+          placeholder="Primary Email"
           required
         />
 
         {/* Note for Admin */}
         <textarea
           className="form-control"
-          placeholder="Additional Notes (visible only to admin)"
+          placeholder="Additional Notes"
           rows="4"
         ></textarea>
 
@@ -97,9 +97,7 @@ export default function Registration() {
       </form>
       <div className="bg-body-tertiary contact-info p-3 text-center">
         <h5>Need Assistance?</h5>
-        <p>Email: info@yourhockeyclub.com</p>
-        <p>Phone: (123) 456-7890</p>
-        <p>Address: 123 Main Street, Steamboat Springs, CO</p>
+        <p>Email: eansor.coaching@gmail.com</p>
       </div>
     </div>
   );

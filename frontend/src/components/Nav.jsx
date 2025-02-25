@@ -19,11 +19,17 @@ export default function Nav() {
           <Link to="/schedule" className="nav-link">
             Schedule Now
           </Link>
-          <Link to="/contact" className="nav-link">
+          {/* <Link to="/contact" className="nav-link">
             Contact
-          </Link>
+          </Link> */}
           <Link to="/camp" className="nav-link">
             Camp
+          </Link>
+          <Link to="/register" className="nav-link">
+            Register
+          </Link>
+          <Link to="/admin" className="nav-link">
+            Admin
           </Link>
         </div>
       </div>
