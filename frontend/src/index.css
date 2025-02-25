@@ -1,39 +1,32 @@
-.title{
+.title {
   color: #007bff;
 }
 
-/* nav bar custom CSS */
 .nav-options {
-  gap: 1rem; 
+  gap: 1rem;
 }
 
-/* Home custom CSS */
-.location-icon{
+.location-icon {
   color: #007bff;
 }
 
-/* About custom CSS */
-.about{
-background-color: #bdddff;
+.about {
+  background-color: #bdddff;
 }
 
-/* Schedule custom CSS */
-/* Container to center the button */
 .schedule-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 56px); /* Adjust height for the navbar */
+  height: calc(100vh - 56px);
 }
 
-/* Styling for the button */
 .schedule-button {
-  width: 50vw; /* 33% of the viewport width */
+  width: 50vw;
   height: 16vh;
   font-size: 2rem;
 }
 
-/* Hover effect */
 .schedule-button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);

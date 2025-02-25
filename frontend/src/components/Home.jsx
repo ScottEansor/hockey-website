@@ -8,7 +8,6 @@ export default function Home() {
       className="container d-flex align-items-center justify-content-between"
       style={{ height: "100vh" }}
     >
-      {/* Title Container - Positioned to the left */}
       <div className="title-container text-start d-flex flex-column gap-2">
         <h1 className="display-4 title">Eansor Coaching</h1>
         <h3>Hockey skills training</h3>
@@ -19,7 +18,6 @@ export default function Home() {
         <button className="btn btn-primary">More About</button>
       </div>
 
-      {/* Image - Positioned to the right */}
       <img
         className="img-fluid rounded-circle"
         src={image}
