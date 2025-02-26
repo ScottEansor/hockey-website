@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../assets/2HRA6KN.jpg";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   //css needs review jusr rough draft for function and basic look
@@ -15,7 +16,12 @@ export default function Home() {
           <i className="location-icon bi bi-geo-alt-fill me-2"></i> Steamboat
           Springs, Colorado
         </h5>
-        <button className="btn btn-primary">More About</button>
+        <Link to="/about" className="btn btn-primary">
+          More About
+        </Link>
+        <Link to="register" className="btn btn-primary">
+          Register Here
+        </Link>
       </div>
 
       <img

@@ -13,8 +13,8 @@ export default function RegistrationCard({ reg }) {
   const playerAge = calculateAge(reg.birthday);
 
   const handleToggleNote = useCallback(() => {
-    setNoteOpen(true);
-  }, []);
+    noteOpen === false ? setNoteOpen(true) : setNoteOpen(false); //check with tim
+  }, [noteOpen]);
 
   return (
     <div
@@ -46,7 +46,7 @@ export default function RegistrationCard({ reg }) {
               <div
                 className={`accordion-collapse collapse ${
                   noteOpen ? "show" : ""
-                }`} //
+                }`} //here is where the class defines if its open or closed --review here--
               >
                 <div className="accordion-body">{reg.notes}</div>
               </div>
