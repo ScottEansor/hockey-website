@@ -1,0 +1,23 @@
+# ❌ Ignore Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ❌ Ignore Environment Variables (API keys, database credentials)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# ❌ Ignore logs
+logs/
+*.log
+
+# ❌ Ignore OS or IDE-specific files
+.DS_Store
+.vscode/
+.idea/
+
+# ❌ Ignore build files
+dist/

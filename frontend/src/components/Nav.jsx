@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar bg-body-tertiary sticky-top">
       <div className="container-fluid">
         <a className="title navbar-brand" href="#">
           Eansor Coaching
@@ -30,6 +30,9 @@ export default function Nav() {
           </Link>
           <Link to="/admin" className="nav-link">
             Admin
+          </Link>
+          <Link to="/athome" className="nav-link">
+            At Home
           </Link>
         </div>
       </div>

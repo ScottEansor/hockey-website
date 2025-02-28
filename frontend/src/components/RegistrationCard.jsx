@@ -13,8 +13,9 @@ export default function RegistrationCard({ reg }) {
   const playerAge = calculateAge(reg.birthday);
 
   const handleToggleNote = useCallback(() => {
-    noteOpen === false ? setNoteOpen(true) : setNoteOpen(false); //check with tim
-  }, [noteOpen]);
+    // noteOpen === false ? setNoteOpen(true) : setNoteOpen(false); //check with tim
+    setNoteOpen((prev) => !prev);
+  }, []);
 
   return (
     <div

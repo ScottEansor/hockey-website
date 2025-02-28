@@ -6,6 +6,7 @@ import Schedule from "./components/Schedule";
 import Contact from "./components/Contact";
 import Registration from "./components/Registration";
 import Admin from "./components/Admin";
+import AtHome from "./components/AtHome";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/athome" element={<AtHome />} />
       </Routes>
     </div>
   );
