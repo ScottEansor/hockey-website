@@ -8,11 +8,10 @@ export default function VideoGallery() {
   const playerRefs = useRef({});
 
   const categories = [
-    { key: "iceSkating", label: "Ice Skating" },
-    { key: "iceShooting", label: "Ice Shooting" },
-    { key: "offIceShooting", label: "Off Ice Shooting" },
-    { key: "offIceStickhandling", label: "Off Ice Stickhandling" },
-    { key: "generalHockey", label: "General Hockey Videos" },
+    { key: "iceSkating", label: "Skating references" },
+    { key: "iceShooting", label: "Shooting references" },
+    { key: "offIceShooting", label: "Off Ice Shooting Drills" },
+    { key: "offIceStickhandling", label: "Off Ice Stickhandling Drills" },
   ];
 
   useEffect(() => {
