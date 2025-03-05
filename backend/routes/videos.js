@@ -32,6 +32,22 @@ router.get("/folders", async (req, res) => {
         }))
     } catch (error) {
         console.log(error)
+        res.status(500).send()
+    }
+})
+
+router.get("/folders/:folderId", async (req, res) => {
+    try {
+        const response = await fetch(`https://api.vimeo.com/me/projects/${req.params.folderId}/items`, {
+            headers: {
+                Authorization: `Bearer ${VIMEO_ACCESS_TOKEN}`
+            }
+        })
+        const body = await response.json()
+        res.json(body)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send()
     }
 })
 
