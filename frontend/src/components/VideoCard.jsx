@@ -44,7 +44,10 @@ export default function VideoCard({ video }) {
                 descriptionOpen ? "show" : ""
               }`} //here is where the class defines if its open or closed --review here--
             >
-              <div className="accordion-body">
+              <div
+                className="accordion-body"
+                style={{ whiteSpace: "pre-wrap" }}
+              >
                 {video.description ||
                   "Improve your skills with these essential drills."}
               </div>
