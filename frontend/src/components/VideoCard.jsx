@@ -9,7 +9,6 @@ export default function VideoCard({ video }) {
 
   return (
     <div
-      key={video.id}
       className="card shadow-sm "
       style={{ width: "calc((100% - 2rem) / 3)", minWidth: "252px" }}
     >

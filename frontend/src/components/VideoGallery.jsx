@@ -49,7 +49,7 @@ export default function VideoGallery() {
       {/* Video Cards Section */}
       <div className="d-flex flex-wrap justify-content-center gap-3">
         {videos.length > 0 ? (
-          videos.map((video) => <VideoCard video={video} />)
+          videos.map((video) => <VideoCard video={video} key={video.id} />)
         ) : (
           <p className="text-center text-muted">
             No videos available in this category.
