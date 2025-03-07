@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 export default function Registration() {
+  const handleSubmit = useCallback(async (e) => {
+    const form = e.target;
+    const data = {
+      playerFirstName: form.playerFirstName.value,
+      playerLastName: form.playerLastName.value,
+      parentFirstName: form.parentFirstName.value,
+      parentLastName: form.parentLastName.value,
+      secondParentFirstName: form.secondParentFirstName.value,
+      secondParentLastName: form.secondParentLastName.value,
+      birthday: form.birthday.value,
+      level: form.level.value,
+      cellPhone: form.cellPhone.value,
+      email: form.email.value,
+      notes: form.notes.value,
+    };
+    const response = await fetch("http://localhost:5000/api/users", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    alert(response.ok);
+  }, []);
   return (
     <div className="d-flex flex-column align-items-center vh-100 p-4">
       <h2 className="text-center p-2">Player Registration</h2>
       <p className="text-center p-2">
         Please fill out the form below to register your player.
       </p>
-      <form className="w-75 d-flex flex-column gap-3 p-2">
+      <form
+        className="w-75 d-flex flex-column gap-3 p-2"
+        onSubmit={handleSubmit}
+      >
         {/* Player's First Name */}
         <input
           type="text"

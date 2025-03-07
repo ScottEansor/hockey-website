@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import cors from "cors"
 import "dotenv/config"
 import videoRoutes from "./routes/videos.js"
+import userRoutes from "./routes/users.js"
 
 const app = express()
 const {
@@ -19,6 +20,7 @@ app.use(cors())//allows frontend to access backend
 app.use(express.json())// allow JSON body parsing (ensures express can handle the data)
 
 app.use("/api/videos", videoRoutes)
+app.use("/api/users", userRoutes)
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 mongoose.connect(MONGO_URI + (NODE_ENV === "development" ? "-test" : ""))

@@ -1,5 +1,4 @@
 import express from "express";
-import fetch from "node-fetch";
 
 const router = express.Router();
 const VIMEO_ACCESS_TOKEN = process.env.VIMEO_ACCESS_TOKEN;
