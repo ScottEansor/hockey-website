@@ -5,10 +5,10 @@ export default function RegistrationCard({ reg }) {
   const [noteOpen, setNoteOpen] = useState(false);
 
   const playerFullName = `${reg.playerFirstName} ${reg.playerLastName}`;
-  const parent1FullName = `${reg.parent1FirstName} ${reg.parent1LastName}`;
+  const parent1FullName = `${reg.parentFirstName} ${reg.parentLastName}`;
   const parent2FullName =
-    reg.parent2FirstName && reg.parent2LastName
-      ? `${reg.parent2FirstName} ${reg.parent2LastName}`
+    reg.secondParentFirstName && reg.secondParentLastName
+      ? `${reg.secondParentFirstName} ${reg.secondParentLastName}`
       : "";
   const playerAge = calculateAge(reg.birthday);
 

@@ -14,6 +14,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Player's First Name"
           required
+          name="playerFirstName"
         />
 
         {/* Player's Last Name */}
@@ -22,6 +23,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Player's Last Name"
           required
+          name="playerLastName"
         />
 
         {/* Primary Parent/Guardian First Name */}
@@ -30,6 +32,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Parent/Guardian First Name"
           required
+          name="parentFirstName"
         />
 
         {/* Primary Parent/Guardian Last Name */}
@@ -38,6 +41,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Parent/Guardian Last Name"
           required
+          name="parentLastName"
         />
 
         {/* Second Parent/Guardian First Name (non-required) */}
@@ -45,6 +49,7 @@ export default function Registration() {
           type="text"
           className="form-control bg-light"
           placeholder="Second Parent/Guardian First Name"
+          name="secondParentFirstName"
         />
 
         {/* Second Parent/Guardian Last Name (non-required) */}
@@ -52,13 +57,22 @@ export default function Registration() {
           type="text"
           className="form-control bg-light"
           placeholder="Second Parent/Guardian Last Name"
+          name="secondParentLastName"
         />
 
         {/* Player's Birthday */}
-        <input type="date" className="form-control" required />
+        <label>
+          Birthday:
+          <input
+            type="date"
+            className="form-control"
+            required
+            name="birthday"
+          />
+        </label>
 
         {/* Current Level */}
-        <select className="form-control" required>
+        <select className="form-control" required name="level">
           <option value="">-- Select Current Level --</option>
           <option value="AAA">AAA</option>
           <option value="AA">AA</option>
@@ -74,6 +88,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Primary Cell Phone"
           required
+          name="cellPhone"
         />
 
         {/* Primary Parent/Guardian Email */}
@@ -82,6 +97,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Primary Email"
           required
+          name="email"
         />
 
         {/* Note for Admin */}
@@ -89,6 +105,7 @@ export default function Registration() {
           className="form-control"
           placeholder="Additional Notes"
           rows="4"
+          name="notes"
         ></textarea>
 
         <button type="submit" className="btn btn-primary">
