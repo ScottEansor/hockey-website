@@ -16,15 +16,32 @@ export default function Registration() {
       email: form.email.value,
       notes: form.notes.value,
     };
-    const response = await fetch("http://localhost:5000/api/users", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    alert(response.ok);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/users", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        alert("✅ You have successfully registered!");
+        form.reset(); // Clears the form after successful submission
+      } else {
+        const errorData = await response.json(); // Get error message if available
+        alert(
+          `❌ Registration failed: ${errorData.message || "Please try again."}`
+        );
+      }
+    } catch (error) {
+      alert(
+        "❌ An error occurred. Please check your connection and try again."
+      );
+    }
   }, []);
+
   return (
     <div className="d-flex flex-column align-items-center vh-100 p-4">
       <h2 className="text-center p-2">Player Registration</h2>
