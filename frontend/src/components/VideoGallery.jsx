@@ -3,29 +3,56 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import VideoCard from "./VideoCard";
 
 export default function VideoGallery() {
-  const [folders, setFolders] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const [folders, setFolders] = useState(null);
+  const [videos, setVideos] = useState(null);
   const [activeFolder, setActiveFolder] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/videos/folders")
-      .then((response) => response.json())
-      .then((data) => {
+    let running = true;
+    async function fetchFolders() {
+      try {
+        const response = await fetch(
+          "http://localhost:5000/api/videos/folders"
+        );
+        const data = await response.json();
+        if (!running) return;
         setFolders(data);
         if (data.length > 0) setActiveFolder(data[0].id);
-      })
-      .catch((error) => console.error("Error fetching folders:", error));
+      } catch (error) {
+        console.error("Error fetching folders:", error);
+      }
+    }
+    fetchFolders();
+    return () => {
+      running = false;
+    };
   }, []);
 
   useEffect(() => {
     if (!activeFolder) return;
-
-    fetch(`http://localhost:5000/api/videos/folders/${activeFolder}`)
-      .then((response) => response.json())
-      .then((data) => setVideos(data))
-      .catch((error) => console.error("Error Fetching videos", error));
+    let running = true;
+    async function fetchActiveFolder() {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/videos/folders/${activeFolder}`
+        );
+        const data = await response.json();
+        if (!running) return;
+        setVideos(data);
+      } catch (error) {
+        console.error("Error Fetching videos", error);
+      }
+    }
+    fetchActiveFolder();
+    return () => {
+      running = false;
+    };
   }, [activeFolder]);
 
+  const handleSelectFolder = (folderId) => {
+    setActiveFolder(folderId);
+    setVideos(null);
+  };
   return (
     <div className="container py-4">
       {/* Section Title */}
@@ -33,22 +60,34 @@ export default function VideoGallery() {
 
       {/* Folder Tabs */}
       <div className="text-center mb-4">
-        {folders.map((folder) => (
-          <button
-            key={folder.id}
-            className={`btn me-2 ${
-              activeFolder === folder.id ? "btn-primary" : "btn-outline-primary"
-            }`}
-            onClick={() => setActiveFolder(folder.id)}
-          >
-            {folder.name}
-          </button>
-        ))}
+        {folders === null ? (
+          <div>Loading...</div>
+        ) : folders.length < 0 ? (
+          <div>Unable to retrieve folders</div>
+        ) : (
+          folders.map((folder) => (
+            <button
+              key={folder.id}
+              className={`btn me-2 ${
+                activeFolder === folder.id
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => {
+                handleSelectFolder(folder.id);
+              }}
+            >
+              {folder.name}
+            </button>
+          ))
+        )}
       </div>
 
       {/* Video Cards Section */}
       <div className="d-flex flex-wrap justify-content-center gap-3">
-        {videos.length > 0 ? (
+        {videos === null ? (
+          <div>Loading...</div>
+        ) : videos.length > 0 ? (
           videos.map((video) => <VideoCard video={video} key={video.id} />)
         ) : (
           <p className="text-center text-muted">
