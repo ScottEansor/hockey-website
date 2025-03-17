@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Registration from "./components/Registration";
 import Admin from "./components/Admin";
 import AtHome from "./components/AtHome";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/contact" element={<Contact />} />

@@ -11,9 +11,11 @@ notes before deployment:
 
 steps for Scheduling:
 
+1. Allow mutliple players per email???
 1. give admin ability to set groups that show up in there profile page
-2. build login page / random password email
-3. build calender
-4. allow admind to create new entries in calender
-5. allow only certain groups to sign up (attached to users login)
-6. dynamically show profile of either admin or signed in person
+1. build login page / random password email (allow mutiple players per email?)
+1. build calender
+1. allow admind to create new entries in calender
+1. allow only certain groups to sign up (attached to users login)
+1. dynamically show profile of either admin or signed in person
+1.
