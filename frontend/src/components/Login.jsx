@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 
 export default function Login() {
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleSubmitOTP = useCallback(() => {}, []);
+
+  const handleSubmitEmail = useCallback(async (e) => {
+    e.preventDefault();
+    setEmailSubmitted(true);
+  }, []);
+
   return (
     <div
       className="d-flex justify-content-center align-items-center"
@@ -20,13 +29,31 @@ export default function Login() {
         }}
       >
         <h2 className="text-center text-light mb-4">Login</h2>
-        <form>
-          <div className="mb-3">
-            <label className="form-label text-light">Email address</label>
-            <input type="email" className="form-control" required />
-          </div>
+        <form onSubmit={emailSubmitted ? handleSubmitOTP : handleSubmitEmail}>
+          {emailSubmitted ? (
+            <div className="mb-3">
+              <label className="form-label text-light">Password</label>
+              <input
+                key="password"
+                type="text"
+                className="form-control"
+                required
+              />
+            </div>
+          ) : (
+            <div className="mb-3">
+              <label className="form-label text-light">Email address</label>
+              <input
+                key="email"
+                type="email"
+                className="form-control"
+                required
+              />
+            </div>
+          )}
+
           <button type="submit" className="btn btn-primary w-100">
-            Login
+            {emailSubmitted ? "Login" : "Send One Time Password"}
           </button>
         </form>
       </div>
