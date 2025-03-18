@@ -37,6 +37,9 @@ export default function Nav() {
           <Link to="/athome" className="nav-link">
             At Home
           </Link>
+          <Link to="/profile" className="nav-link">
+            Profile
+          </Link>
         </div>
       </div>
     </nav>

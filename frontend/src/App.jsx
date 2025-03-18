@@ -8,6 +8,7 @@ import Registration from "./components/Registration";
 import Admin from "./components/Admin";
 import AtHome from "./components/AtHome";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<Registration />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/athome" element={<AtHome />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );
