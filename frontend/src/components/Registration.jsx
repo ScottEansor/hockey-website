@@ -4,17 +4,17 @@ export default function Registration() {
   const handleSubmit = useCallback(async (e) => {
     const form = e.target;
     const data = {
-      playerFirstName: form.playerFirstName.value,
-      playerLastName: form.playerLastName.value,
+      // playerFirstName: form.playerFirstName.value,
+      // playerLastName: form.playerLastName.value,
       parentFirstName: form.parentFirstName.value,
       parentLastName: form.parentLastName.value,
       secondParentFirstName: form.secondParentFirstName.value,
       secondParentLastName: form.secondParentLastName.value,
-      birthday: form.birthday.value,
-      level: form.level.value,
+      // birthday: form.birthday.value,
+      // level: form.level.value,
       cellPhone: form.cellPhone.value,
       email: form.email.value,
-      notes: form.notes.value,
+      // notes: form.notes.value,
     };
 
     try {
@@ -44,32 +44,14 @@ export default function Registration() {
 
   return (
     <div className="d-flex flex-column align-items-center vh-100 p-4">
-      <h2 className="text-center p-2">Player Registration</h2>
+      <h2 className="text-center p-2">Parent Registration</h2>
       <p className="text-center p-2">
-        Please fill out the form below to register your player.
+        Please fill out the form below to register your account.
       </p>
       <form
         className="w-75 d-flex flex-column gap-3 p-2"
         onSubmit={handleSubmit}
       >
-        {/* Player's First Name */}
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Player's First Name"
-          required
-          name="playerFirstName"
-        />
-
-        {/* Player's Last Name */}
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Player's Last Name"
-          required
-          name="playerLastName"
-        />
-
         {/* Primary Parent/Guardian First Name */}
         <input
           type="text"
@@ -104,29 +86,6 @@ export default function Registration() {
           name="secondParentLastName"
         />
 
-        {/* Player's Birthday */}
-        <label>
-          Birthday:
-          <input
-            type="date"
-            className="form-control"
-            required
-            name="birthday"
-          />
-        </label>
-
-        {/* Current Level */}
-        <select className="form-control" required name="level">
-          <option value="">-- Select Current Level --</option>
-          <option value="AAA">AAA</option>
-          <option value="AA">AA</option>
-          <option value="A/AA">A/AA</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="Beginner">Beginner</option>
-        </select>
-
-        {/* Primary Parent/Guardian Cell Phone */}
         <input
           type="tel"
           className="form-control"
@@ -135,7 +94,6 @@ export default function Registration() {
           name="cellPhone"
         />
 
-        {/* Primary Parent/Guardian Email */}
         <input
           type="email"
           className="form-control"
@@ -143,14 +101,6 @@ export default function Registration() {
           required
           name="email"
         />
-
-        {/* Note for Admin */}
-        <textarea
-          className="form-control"
-          placeholder="Additional Notes"
-          rows="4"
-          name="notes"
-        ></textarea>
 
         <button type="submit" className="btn btn-primary">
           Register
