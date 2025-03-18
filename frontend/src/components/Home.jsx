@@ -22,6 +22,9 @@ export default function Home() {
         <Link to="register" className="btn btn-primary">
           Register Here
         </Link>
+        <Link to="login" className="btn btn-primary">
+          Login Here
+        </Link>
       </div>
 
       <img
