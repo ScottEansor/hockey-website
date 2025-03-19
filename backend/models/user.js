@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    otp: {
+        type: String,
+    },
+    otpExpiration: {
+        type: Number,
+    }
 })
 
 export default mongoose.model("user", userSchema)

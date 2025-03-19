@@ -1,25 +1,24 @@
 import React, { useCallback, useState } from "react";
 
 export default function Login() {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [emailSubmitted, setEmailSubmitted] = useState(null);
 
   const handleSubmitOTP = useCallback(() => {}, []);
 
   const handleSubmitEmail = useCallback(async (e) => {
     e.preventDefault();
-    setEmailSubmitted(true);
+    setEmailSubmitted(e.target.email.value);
   }, []);
 
   return (
     <div
       className="d-flex justify-content-center align-items-center"
       style={{
-        minHeight: "100vh",
+        height: "100vh",
         width: "100vw",
         background: "linear-gradient(to right, #141E30, #243B55)",
       }}
     >
-      {/* box that holds the login form */}
       <div
         className="p-4 rounded shadow"
         style={{
@@ -29,6 +28,7 @@ export default function Login() {
         }}
       >
         <h2 className="text-center text-light mb-4">Login</h2>
+        <p className="text-light text-center">{emailSubmitted}</p>
         <form onSubmit={emailSubmitted ? handleSubmitOTP : handleSubmitEmail}>
           {emailSubmitted ? (
             <div className="mb-3">
@@ -44,6 +44,7 @@ export default function Login() {
             <div className="mb-3">
               <label className="form-label text-light">Email address</label>
               <input
+                name="email"
                 key="email"
                 type="email"
                 className="form-control"
