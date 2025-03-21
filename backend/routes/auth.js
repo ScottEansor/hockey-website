@@ -34,7 +34,11 @@ router.post("/generate-otp", async (req, res) => {
         user.otp = otp
         user.otpExpiration = Date.now() + (1000 * 60 * 5)
         await user.save()
-
+        transporter.sendMail({
+            to: email,
+            subject: 'One Time Password Eansor Coaching',
+            html: `Your one time password is: ${otp}`
+        })
         res.sendStatus(200)
     } catch (error) {
         console.error(error)
