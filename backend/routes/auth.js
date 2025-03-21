@@ -46,5 +46,16 @@ router.post("/generate-otp", async (req, res) => {
     }
 })
 
+// expecting email and OTP from client on body
+// retrieve user with that email
+// if there is not that user with that email send back 404
+// ask if OTP on the user is the same as the request 
+//if not send 400 saying that OTP is invalid
+// ask if the otp on the user is after now
+//if not send 400 that OTP is expired
+//generate cookie remembering users id and experation for that cookie
+
+
+
 
 export default router
