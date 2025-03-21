@@ -4,6 +4,7 @@ import cors from "cors"
 import "dotenv/config"
 import videoRoutes from "./routes/videos.js"
 import userRoutes from "./routes/users.js"
+import authRoutes from "./routes/auth.js"
 
 const app = express()
 const {
@@ -21,6 +22,7 @@ app.use(express.json())// allow JSON body parsing (ensures express can handle th
 
 app.use("/api/videos", videoRoutes)
 app.use("/api/users", userRoutes)
+app.use("/api/auth", authRoutes)
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 mongoose.connect(MONGO_URI + (NODE_ENV === "development" ? "-test" : ""))

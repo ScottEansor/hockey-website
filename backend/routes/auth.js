@@ -1,6 +1,7 @@
 import express from "express"
 import userModel from "../models/user.js"
 import otpGenerator from 'otp-generator'
+import nodemailer from 'nodemailer'
 
 const router = express.Router()
 
@@ -11,8 +12,17 @@ const router = express.Router()
 //save that password on there document as well as a time stamp + 5min
 //send an email to that email w/ a OTP
 //send back 200 status
+const transporter = nodemailer.createTransport({
+    secure: false,
+    host: "smtp.gmail.com",
+    port: 587,
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
+    }
+})
 
-router.post("/", async (req, res) => {
+router.post("/generate-otp", async (req, res) => {
     try {
         const email = req.body.email
         const user = await userModel.findOne({ email })
@@ -21,6 +31,10 @@ router.post("/", async (req, res) => {
             return
         }
         const otp = otpGenerator.generate(6, { digits: false, lowerCaseAlphabets: false, specialChars: false });
+        user.otp = otp
+        user.otpExpiration = Date.now() + (1000 * 60 * 5)
+        await user.save()
+
         res.sendStatus(200)
     } catch (error) {
         console.error(error)

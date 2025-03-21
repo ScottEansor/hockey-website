@@ -7,7 +7,24 @@ export default function Login() {
 
   const handleSubmitEmail = useCallback(async (e) => {
     e.preventDefault();
-    setEmailSubmitted(e.target.email.value);
+    const enteredEmail = e.target.email.value;
+    const response = await fetch(
+      "http://localhost:5000/api/auth/generate-otp",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: enteredEmail,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!response.ok) {
+      alert("Something went wrong with the request.");
+      return;
+    }
+    setEmailSubmitted(enteredEmail);
   }, []);
 
   return (
