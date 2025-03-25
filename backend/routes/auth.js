@@ -55,7 +55,7 @@ router.post("/generate-otp", async (req, res) => {
 // ask if the otp on the user is after now
 //if not send 400 that OTP is expired
 //generate cookie remembering users id and experation for that cookie
-router.post("/verify-otp", async (req, res) => {
+router.post("/signin", async (req, res) => {
     try {
         const email = req.body.email
         const otp = req.body.otp
@@ -68,15 +68,23 @@ router.post("/verify-otp", async (req, res) => {
             res.status(400).send("invalid otp")
             return
         }
-        if (user.otpExpiration > Date.now()) {
+        if (user.otpExpiration < Date.now()) {
             res.status(400).send("expired otp")
             return
         }
-
+        req.session.userId = user._id
+        user.otp = undefined
+        user.otpExpiration = undefined
+        await user.save()
+        res.sendStatus(200)
     } catch (error) {
-
+        console.error(error)
+        res.sendStatus(500)
     }
 })
 
+router.get('/me', async (req, res) => {
+    res.send('hi')
+})
 
 export default router

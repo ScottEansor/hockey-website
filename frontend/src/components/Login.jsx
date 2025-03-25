@@ -3,7 +3,29 @@ import React, { useCallback, useState } from "react";
 export default function Login() {
   const [emailSubmitted, setEmailSubmitted] = useState(null);
 
-  const handleSubmitOTP = useCallback(() => {}, []);
+  const handleSubmitOTP = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const enteredOtp = e.target.otp.value;
+      const response = await fetch("http://localhost:5000/api/auth/signin", {
+        method: "POST",
+        body: JSON.stringify({
+          email: emailSubmitted,
+          otp: enteredOtp,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        alert("Something went wrong with the request.");
+        return;
+      }
+      alert("You are signed in");
+      await fetch("http://localhost:5000/api/auth/me");
+    },
+    [emailSubmitted]
+  );
 
   const handleSubmitEmail = useCallback(async (e) => {
     e.preventDefault();
@@ -51,6 +73,7 @@ export default function Login() {
             <div className="mb-3">
               <label className="form-label text-light">Password</label>
               <input
+                name="otp"
                 key="password"
                 type="text"
                 className="form-control"
