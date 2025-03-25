@@ -46,6 +46,7 @@ router.post("/generate-otp", async (req, res) => {
     }
 })
 
+
 // expecting email and OTP from client on body
 // retrieve user with that email
 // if there is not that user with that email send back 404
@@ -54,8 +55,28 @@ router.post("/generate-otp", async (req, res) => {
 // ask if the otp on the user is after now
 //if not send 400 that OTP is expired
 //generate cookie remembering users id and experation for that cookie
+router.post("/verify-otp", async (req, res) => {
+    try {
+        const email = req.body.email
+        const otp = req.body.otp
+        const user = await userModel.findOne({ email })
+        if (!user) {
+            res.sendStatus(404)
+            return
+        }
+        if (user.otp !== otp) {
+            res.status(400).send("invalid otp")
+            return
+        }
+        if (user.otpExpiration > Date.now()) {
+            res.status(400).send("expired otp")
+            return
+        }
 
+    } catch (error) {
 
+    }
+})
 
 
 export default router

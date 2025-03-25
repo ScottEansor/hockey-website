@@ -5,6 +5,7 @@ import "dotenv/config"
 import videoRoutes from "./routes/videos.js"
 import userRoutes from "./routes/users.js"
 import authRoutes from "./routes/auth.js"
+import session from "express-session"
 
 const app = express()
 const {
@@ -19,6 +20,7 @@ if (!MONGO_URI) {
 //middleware
 app.use(cors())//allows frontend to access backend
 app.use(express.json())// allow JSON body parsing (ensures express can handle the data)
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }))
 
 app.use("/api/videos", videoRoutes)
 app.use("/api/users", userRoutes)
