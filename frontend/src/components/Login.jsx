@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [emailSubmitted, setEmailSubmitted] = useState(null);
 
   const handleSubmitOTP = useCallback(
@@ -22,7 +22,7 @@ export default function Login() {
         return;
       }
       alert("You are signed in");
-      await fetch("/api/auth/me");
+      onLogin();
     },
     [emailSubmitted]
   );

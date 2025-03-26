@@ -84,7 +84,11 @@ router.post("/signin", async (req, res) => {
 })
 
 router.get('/me', async (req, res) => {
-    res.send('hi')
+    if (!req.user) {
+        res.sendStatus(401)
+        return
+    }
+    res.json(req.user)
 })
 
 export default router
