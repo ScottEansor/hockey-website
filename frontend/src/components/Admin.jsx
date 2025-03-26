@@ -8,7 +8,7 @@ export default function Admin() {
     let running = true;
     async function fetchUsers() {
       try {
-        const response = await fetch("http://localhost:5000/api/users");
+        const response = await fetch("/api/users");
         const data = await response.json();
         if (!running) return;
         setRegistrations(data);

@@ -11,9 +11,7 @@ export default function VideoGallery() {
     let running = true;
     async function fetchFolders() {
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/videos/folders"
-        );
+        const response = await fetch("/api/videos/folders");
         const data = await response.json();
         if (!running) return;
         setFolders(data);
@@ -33,9 +31,7 @@ export default function VideoGallery() {
     let running = true;
     async function fetchActiveFolder() {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/videos/folders/${activeFolder}`
-        );
+        const response = await fetch(`/api/videos/folders/${activeFolder}`);
         const data = await response.json();
         if (!running) return;
         setVideos(data);

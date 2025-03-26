@@ -18,7 +18,7 @@ export default function Registration() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/users", {
+      const response = await fetch("/api/users", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

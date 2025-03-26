@@ -7,7 +7,7 @@ export default function Login() {
     async (e) => {
       e.preventDefault();
       const enteredOtp = e.target.otp.value;
-      const response = await fetch("http://localhost:5000/api/auth/signin", {
+      const response = await fetch("/api/auth/signin", {
         method: "POST",
         body: JSON.stringify({
           email: emailSubmitted,
@@ -22,7 +22,7 @@ export default function Login() {
         return;
       }
       alert("You are signed in");
-      await fetch("http://localhost:5000/api/auth/me");
+      await fetch("/api/auth/me");
     },
     [emailSubmitted]
   );
@@ -30,18 +30,15 @@ export default function Login() {
   const handleSubmitEmail = useCallback(async (e) => {
     e.preventDefault();
     const enteredEmail = e.target.email.value;
-    const response = await fetch(
-      "http://localhost:5000/api/auth/generate-otp",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: enteredEmail,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch("/api/auth/generate-otp", {
+      method: "POST",
+      body: JSON.stringify({
+        email: enteredEmail,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     if (!response.ok) {
       alert("Something went wrong with the request.");
       return;
