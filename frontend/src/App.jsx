@@ -15,7 +15,7 @@ function App() {
   const { userData, getMe } = useUserData();
   return (
     <div className="app-container">
-      <Nav />
+      <Nav userData={userData} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
