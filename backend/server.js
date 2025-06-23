@@ -7,6 +7,7 @@ import userRoutes from "./routes/users.js"
 import authRoutes from "./routes/auth.js"
 import session from "express-session"
 import userModel from "./models/user.js"
+import ConnectMongoDBSession from "connect-mongodb-session"
 
 const app = express()
 const {
@@ -18,10 +19,18 @@ if (!MONGO_URI) {
     throw new Error("MONGO URI required in env")
 }
 
+const mongoURI = MONGO_URI + (NODE_ENV === "development" ? "-test" : "")
+
+const MongoDBStore = ConnectMongoDBSession(session);
+const sessionStore = new MongoDBStore({
+    uri: mongoURI,
+    collection: 'session'
+})
+
 //middleware
 app.use(cors())//allows frontend to access backend
 app.use(express.json())// allow JSON body parsing (ensures express can handle the data)
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }))
+app.use(session({ secret: 'keyboard cat',  resave: true, saveUninitialized: true, store: sessionStore }))
 app.use(async (req, res, next) => {
     if (req.session.userId) {
         req.user = await userModel.findById(req.session.userId)
@@ -34,4 +43,4 @@ app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
-mongoose.connect(MONGO_URI + (NODE_ENV === "development" ? "-test" : ""))
+mongoose.connect(mongoURI)

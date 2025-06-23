@@ -1,7 +1,9 @@
-.title {
+.title,.title:hover  {
   color: #007bff;
 }
-
+.profile-link { 
+  color: #007bff;
+}
 .nav-options {
   gap: 1rem;
 }
@@ -32,5 +34,3 @@
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* video player css done by chat gpt for testing and for a base */
-/* 🔹 Video Container (Scrollable Section) */

@@ -6,9 +6,9 @@ export default function Nav({ userData }) {
   return (
     <nav className="navbar bg-body-tertiary sticky-top">
       <div className="container-fluid">
-        <a className="title navbar-brand" href="#">
+        <div className="title navbar-brand" href="#">
           Eansor Coaching
-        </a>
+        </div>
         <div className="d-flex ms-auto nav-options">
           <Link to="/" className="nav-link">
             Home
@@ -42,9 +42,11 @@ export default function Nav({ userData }) {
             </>
           )}
           {userData?.status === "signed in" && (
-            <Link to="/profile" className="nav-link">
-              Profile
-            </Link>
+            <>
+              <Link to="/profile" className="nav-link profile-link">
+                {`Profile: ${userData.parentFirstName} ${userData.parentLastName[0]}.`}
+              </Link>
+            </>
           )}
         </div>
       </div>
