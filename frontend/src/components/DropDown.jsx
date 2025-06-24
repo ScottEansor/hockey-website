@@ -33,7 +33,7 @@ export function DropDownLink({ to, children }) {
 export function DropDownButton({ onClick, children }) {
   return (
     <li>
-      <a onClick={onClick} className="dropdown-item">
+      <a onClick={onClick} className="dropdown-item" href="#">
         {children}
       </a>
     </li>

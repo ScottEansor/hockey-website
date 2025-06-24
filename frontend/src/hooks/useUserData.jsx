@@ -22,8 +22,14 @@ export default function useUserData() {
     getMe();
   }, [getMe]);
 
+  const logout = useCallback(async () => {
+    const response = await fetch("/api/auth", { method : 'DELETE' })
+    await getMe()
+  }, [getMe])
+
   return {
     userData,
     getMe,
+    logout
   };
 }

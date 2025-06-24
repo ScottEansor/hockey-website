@@ -12,10 +12,10 @@ import Profile from "./components/Profile";
 import useUserData from "./hooks/useUserData";
 
 function App() {
-  const { userData, getMe } = useUserData();
+  const { userData, getMe, logout } = useUserData();
   return (
     <div className="app-container">
-      <Nav userData={userData} />
+      <Nav userData={userData} onLogout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />

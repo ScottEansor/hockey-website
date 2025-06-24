@@ -91,4 +91,8 @@ router.get('/me', async (req, res) => {
     res.json(req.user)
 })
 
+router.delete('/', async (req, res) => {
+    req.session.destroy()
+    res.sendStatus(200)
+})
 export default router

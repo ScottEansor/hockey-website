@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavLink from "./NavLink";
 import DropDown, { DropDownButton, DropDownLink } from "./DropDown";
 
-export default function Nav({ userData }) {
+export default function Nav({ userData, onLogout }) {
 
   const [isOpen, setIsOpen] = useState(false)
   
@@ -45,7 +45,7 @@ export default function Nav({ userData }) {
                 label={`${userData.parentFirstName} ${userData.parentLastName[0]}.`}
               >
                 <DropDownLink to={'/profile'}>Profile</DropDownLink>
-                <DropDownButton onClick={handleLogout}>Logout</DropDownButton>
+                <DropDownButton onClick={onLogout}>Logout</DropDownButton>
               </DropDown>
 
               // <>

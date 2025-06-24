@@ -4,6 +4,11 @@
 .profile-link { 
   color: #007bff;
 }
+
+.dropdown-toggle {
+    color: #007bff;
+}
+
 .nav-options {
   gap: 1rem;
 }
