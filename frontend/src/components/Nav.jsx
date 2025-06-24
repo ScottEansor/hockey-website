@@ -1,53 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import NavLink from "./NavLink";
+import DropDown, { DropDownButton, DropDownLink } from "./DropDown";
 
 export default function Nav({ userData }) {
+
+  const [isOpen, setIsOpen] = useState(false)
+  
+
   return (
-    <nav className="navbar bg-body-tertiary sticky-top">
+    <nav className="navbar bg-body-tertiary sticky-top navbar-expand-md">
       <div className="container-fluid">
-        <div className="title navbar-brand" href="#">
+        <div className="title navbar-brand">
           Eansor Coaching
         </div>
-        <div className="d-flex ms-auto nav-options">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-          <Link to="/about" className="nav-link">
-            About
-          </Link>
-          <Link to="/schedule" className="nav-link">
-            Schedule Now
-          </Link>
-          {/* <Link to="/contact" className="nav-link">
+        <button
+          className="navbar-toggler"
+          onClick={()=> setIsOpen(prev=> !prev)}
+          type="button"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className={"navbar-collapse " + (isOpen?"":"collapse") }>
+          <ul className="navbar-nav">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/schedule">Schedule Now</NavLink>
+            {/* <Link to="/contact">
             Contact
           </Link> */}
-          <Link to="/camp" className="nav-link">
-            Camp
-          </Link>
-          <Link to="/admin" className="nav-link">
-            Admin
-          </Link>
-          <Link to="/athome" className="nav-link">
-            At Home
-          </Link>
-          {userData?.status === "not signed in" && (
-            <>
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
-              <Link to="/register" className="nav-link">
-                Register
-              </Link>
-            </>
-          )}
-          {userData?.status === "signed in" && (
-            <>
-              <Link to="/profile" className="nav-link profile-link">
-                {`Profile: ${userData.parentFirstName} ${userData.parentLastName[0]}.`}
-              </Link>
-            </>
-          )}
+            <NavLink to="/camp">Camp</NavLink>
+            <NavLink to="/admin">Admin</NavLink>
+            <NavLink to="/athome">At Home</NavLink>
+            {userData?.status === "not signed in" && (
+              <>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/register">Register</NavLink>
+              </>
+            )}
+            {userData?.status === "signed in" && (
+              <DropDown
+                label={`${userData.parentFirstName} ${userData.parentLastName[0]}.`}
+              >
+                <DropDownLink to={'/profile'}>Profile</DropDownLink>
+                <DropDownButton onClick={handleLogout}>Logout</DropDownButton>
+              </DropDown>
+
+              // <>
+              //   <Link to="/profile" className="nav-link profile-link">
+              //     {`${userData.parentFirstName} ${userData.parentLastName[0]}.`}
+              //   </Link>
+              // </>
+            )}
+          </ul>
         </div>
       </div>
     </nav>
