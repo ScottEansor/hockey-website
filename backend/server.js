@@ -30,7 +30,8 @@ const sessionStore = new MongoDBStore({
 //middleware
 app.use(cors())//allows frontend to access backend
 app.use(express.json())// allow JSON body parsing (ensures express can handle the data)
-app.use(session({ secret: 'keyboard cat',  resave: true, saveUninitialized: true, store: sessionStore }))
+// session cookie signout time in mageAge property 
+app.use(session({ secret: 'keyboard cat',  resave: true, saveUninitialized: true, store: sessionStore, cookie: {maxAge: 1000 * 60 * 60 * 24 * 30 } }))
 app.use(async (req, res, next) => {
     if (req.session.userId) {
         req.user = await userModel.findById(req.session.userId)
