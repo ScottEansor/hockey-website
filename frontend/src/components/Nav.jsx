@@ -39,8 +39,14 @@ export default function Nav({ userData, onLogout }) {
               <DropDown
                 label={`${userData.parentFirstName} ${userData.parentLastName[0]}.`}
               >
-                <DropDownLink to={"/profile"}>Profile</DropDownLink>
-                {userData.isAdmin && <DropDownLink to="/admin">Admin</DropDownLink>}
+                {userData.isAdmin ? (
+                  <>
+                    <DropDownLink to="/admin">Manage Users</DropDownLink>
+                    <DropDownLink to={"/profile"}>Manage Players</DropDownLink>
+                  </>
+                ) : (
+                  <DropDownLink to={"/profile"}>Profile</DropDownLink>
+                )}
                 <DropDownButton onClick={onLogout}>Logout</DropDownButton>
               </DropDown>
 
