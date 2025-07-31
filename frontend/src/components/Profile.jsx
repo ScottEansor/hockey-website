@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import PlayerCard from "./PlayerCard";
 
 export default function Profile() {
   const [players, setPlayers]= useState(null)
@@ -18,6 +19,6 @@ export default function Profile() {
   },[])
 
   return <div>
-    
+    {players?.map(player => <PlayerCard key={player._id} player={player}/>)}
   </div>;
 }

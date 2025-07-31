@@ -28,7 +28,11 @@ router.get("/", async (req, res) => {
     if (!req.user.isAdmin){
       filter.parent = req.user 
     }
-    const players = await playerModel.find(filter)
+    let playersPromise = playerModel.find(filter)
+    if(req.user.isAdmin){
+      playersPromise = playersPromise.populate('parent')
+    }
+    const players = await playersPromise
     //if not admin send back filter
     res.json(players)
     //if admin send back no filtered calculated 
