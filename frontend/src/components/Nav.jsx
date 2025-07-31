@@ -4,26 +4,22 @@ import NavLink from "./NavLink";
 import DropDown, { DropDownButton, DropDownLink } from "./DropDown";
 
 export default function Nav({ userData, onLogout }) {
-
-  const [isOpen, setIsOpen] = useState(false)
-  
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar bg-body-tertiary sticky-top navbar-expand-md">
       <div className="container-fluid">
-        <div className="title navbar-brand">
-          Eansor Coaching
-        </div>
+        <div className="title navbar-brand">Eansor Coaching</div>
         <button
           className="navbar-toggler"
-          onClick={()=> setIsOpen(prev=> !prev)}
+          onClick={() => setIsOpen((prev) => !prev)}
           type="button"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={"navbar-collapse " + (isOpen?"":"collapse") }>
+        <div className={"navbar-collapse " + (isOpen ? "" : "collapse")}>
           <ul className="navbar-nav">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
@@ -32,8 +28,6 @@ export default function Nav({ userData, onLogout }) {
             Contact
           </Link> */}
             <NavLink to="/camp">Camp</NavLink>
-            {/* conditionally render admin */}
-            <NavLink to="/admin">Admin</NavLink>
             <NavLink to="/athome">At Home</NavLink>
             {userData?.status === "not signed in" && (
               <>
@@ -45,7 +39,8 @@ export default function Nav({ userData, onLogout }) {
               <DropDown
                 label={`${userData.parentFirstName} ${userData.parentLastName[0]}.`}
               >
-                <DropDownLink to={'/profile'}>Profile</DropDownLink>
+                <DropDownLink to={"/profile"}>Profile</DropDownLink>
+                {userData.isAdmin && <DropDownLink to="/admin">Admin</DropDownLink>}
                 <DropDownButton onClick={onLogout}>Logout</DropDownButton>
               </DropDown>
 
