@@ -5,7 +5,8 @@ const router = express.Router()
 
 router.post("/", async (req, res) => {
     try {
-        await userModel.create(req.body)
+        const { isAdmin, ...data} = req.body
+        await userModel.create(data)
         res.sendStatus(201)
     } catch (error) {
         console.error(error)

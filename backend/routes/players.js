@@ -24,7 +24,13 @@ router.get("/", async (req, res) => {
       return;
     }
     // we finished here <---- 7/9/2025
+    const filter = {}
+    if (!req.user.isAdmin){
+      filter.parent = req.user 
+    }
+    const players = await playerModel.find(filter)
     //if not admin send back filter
+    res.json(players)
     //if admin send back no filtered calculated 
 
   } catch (error) {

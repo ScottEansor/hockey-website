@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema({
     },
     otpExpiration: {
         type: Number,
+    },
+    isAdmin : {
+        type: Boolean,
+        default: false
     }
 })
 

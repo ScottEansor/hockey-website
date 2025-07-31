@@ -32,6 +32,7 @@ export default function Nav({ userData, onLogout }) {
             Contact
           </Link> */}
             <NavLink to="/camp">Camp</NavLink>
+            {/* conditionally render admin */}
             <NavLink to="/admin">Admin</NavLink>
             <NavLink to="/athome">At Home</NavLink>
             {userData?.status === "not signed in" && (
