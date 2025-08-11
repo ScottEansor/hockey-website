@@ -10,6 +10,7 @@ import AtHome from "./components/AtHome";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import useUserData from "./hooks/useUserData";
+import ManagePlayers from "./components/ManagePlayers";
 
 function App() {
   const { userData, getMe, logout } = useUserData();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/athome" element={<AtHome />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin/players" element={<ManagePlayers />}/>
       </Routes>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import NavLink from "./NavLink";
 import DropDown, { DropDownButton, DropDownLink } from "./DropDown";
 
@@ -42,10 +41,10 @@ export default function Nav({ userData, onLogout }) {
                 {userData.isAdmin ? (
                   <>
                     <DropDownLink to="/admin">Manage Users</DropDownLink>
-                    <DropDownLink to={"/profile"}>Manage Players</DropDownLink>
+                    <DropDownLink to="/admin/players">Manage Players</DropDownLink>
                   </>
                 ) : (
-                  <DropDownLink to={"/profile"}>Profile</DropDownLink>
+                  <DropDownLink to="/profile">Profile</DropDownLink>
                 )}
                 <DropDownButton onClick={onLogout}>Logout</DropDownButton>
               </DropDown>
