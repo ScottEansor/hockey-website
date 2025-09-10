@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import useUserData from "./hooks/useUserData";
 import ManagePlayers from "./components/ManagePlayers";
+import ManageUsers from "./components/ManageUsers";
 
 function App() {
   const { userData, getMe, logout } = useUserData();
@@ -25,7 +26,7 @@ function App() {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Registration />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<ManageUsers />} />
         <Route path="/athome" element={<AtHome />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin/players" element={<ManagePlayers />}/>

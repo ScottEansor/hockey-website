@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RegistrationCard from "./RegistrationCard";
+import UserCard from "./UserCard";
 
 export default function Admin() {
   const [registrations, setRegistrations] = useState(null);
@@ -27,7 +27,7 @@ export default function Admin() {
       <h1 className="text-center p-2">Registered Players</h1>
       <div className="d-flex flex-wrap justify-content-center gap-3">
         {registrations?.map((reg) => (
-          <RegistrationCard reg={reg} key={reg._id} />
+          <UserCard reg={reg} key={reg._id} />
         ))}
       </div>
     </div>

@@ -23,7 +23,6 @@ router.get("/", async (req, res) => {
       res.sendStatus(401);
       return;
     }
-    // we finished here <---- 7/9/2025
     const filter = {}
     if (!req.user.isAdmin){
       filter.parent = req.user 
