@@ -18,13 +18,13 @@ export default function Profile() {
   }, []);
 
   return (
-    <>
-      <h1 className="text-center mb-3">Profile Page</h1>
+    <div className="d-flex flex-column align-items-center vh-100 p-4 gap-2">
+      <h1 className="text-center p-2">Profile Page</h1>
       <div>
         {players?.map((player) => (
-          <PlayerCard key={player._id} player={player} />
+          <PlayerCard key={player._id} player={player} hideParentButton/>
         ))}
       </div>
-    </>
+    </div>
   );
 }

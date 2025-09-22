@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { calculateAge } from "../util";
 import Modal from "./Modal";
+import { Fragment } from "react";
 
 export default function UserCard({ reg }) {
   const [showPlayers, setShowPlayers] = useState(false);
@@ -11,7 +12,6 @@ export default function UserCard({ reg }) {
     reg.secondParentFirstName && reg.secondParentLastName
       ? `${reg.secondParentFirstName} ${reg.secondParentLastName}`
       : "";
-  const playerAge = calculateAge(reg.birthday);
 
   return (
     <div
@@ -48,6 +48,14 @@ export default function UserCard({ reg }) {
             </h5>
           }
         >
+          <div>
+            {reg.players.map((player) => (<Fragment key={player._id}>
+              <h2>{player.playerFirstName + " " + player.playerLastName}</h2>
+              <p>Age: {calculateAge(player.birthday)}</p>
+              <p>Level: {player.level}</p>
+              </Fragment>
+            ))}
+          </div>
         </Modal>
       </div>
     </div>

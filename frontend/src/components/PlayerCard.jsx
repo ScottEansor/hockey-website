@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { calculateAge } from "../util";
 import Modal from "./Modal";
-export default function PlayerCard({ player }) {
+export default function PlayerCard({ player, hideParentButton }) {
   const playerAge = calculateAge(player.birthday);
   const [showNotes, setShowNotes] = useState(false);
   const [showParents, setShowParents] = useState(false)
@@ -31,9 +31,9 @@ export default function PlayerCard({ player }) {
             >
               Notes
             </button>
-            <button className="btn btn-primary" onClick={()=> setShowParents(true)}>
+            {!hideParentButton && <button className="btn btn-primary" onClick={()=> setShowParents(true)}>
               Parents
-            </button>
+            </button>}
           </div>
 
           {/* Note modal below  */}

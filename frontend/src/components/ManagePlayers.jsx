@@ -21,13 +21,13 @@ export default function ManagePlayers() {
   }, []);
 
   return (
-    <>
-      <h1 className="text-center mb-3">Manage Players</h1>
-      <div>
+    <div className="d-flex flex-column align-items-center vh-100 p-4 gap-2">
+      <h1 className="text-center p-2">Manage Players</h1>
+      <div className="d-flex flex-wrap justify-content-center gap-3">
         {players?.map((player) => (
           <PlayerCard key={player._id} player={player} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
