@@ -24,7 +24,7 @@ const playerSchema = new mongoose.Schema({
     notes: {
         type: String,
         required: false
-    }
+    },
 })
 
 export default mongoose.model("player", playerSchema)

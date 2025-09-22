@@ -35,6 +35,17 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
+}, {
+    toJSON: {
+        virtuals:true
+    }
+})
+
+userSchema.virtual('players',{
+    localField: '_id',
+    foreignField: 'parent',
+    justOne: false,
+    ref: 'player'
 })
 
 export default mongoose.model("user", userSchema)
