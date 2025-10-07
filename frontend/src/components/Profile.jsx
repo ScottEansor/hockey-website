@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import PlayerCard from "./PlayerCard";
+import Modal from "./Modal"
+import PlayerRegistration from "./PlayerRegistration";
 
 export default function Profile() {
   const [players, setPlayers] = useState(null);
+  const [showCreatePlayerModal, setShowCreatePlayerModal] = useState(false)
   useEffect(() => {
     let running = true;
     async function fetchPlayers() {
@@ -17,9 +20,22 @@ export default function Profile() {
     };
   }, []);
 
+  const createPlayer = async (player)=>{
+    const response = await fetch("/api/players", {
+      method: 'POST',
+      body: JSON.stringify(player),
+      headers: {
+        "Content-Type":"application/json"
+      }
+    })
+  }
   return (
     <div className="d-flex flex-column align-items-center vh-100 p-4 gap-2">
-      <h1 className="text-center p-2">Profile Page</h1>
+      <h1 className="text-center">Profile Page</h1>
+      <button className="btn btn-primary btn-lg" onClick={() => setShowCreatePlayerModal(true)}>Add Player</button>
+      <Modal open={showCreatePlayerModal} onClose={()=>setShowCreatePlayerModal(false)} header={<h5>Add A New Player </h5>}>
+      <PlayerRegistration onSubmit={createPlayer}/>
+      </Modal>
       <div>
         {players?.map((player) => (
           <PlayerCard key={player._id} player={player} hideParentButton/>
