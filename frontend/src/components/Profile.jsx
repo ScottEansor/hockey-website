@@ -6,11 +6,16 @@ import PlayerRegistration from "./PlayerRegistration";
 export default function Profile() {
   const [players, setPlayers] = useState(null);
   const [showCreatePlayerModal, setShowCreatePlayerModal] = useState(false)
+
+  const fetchPlayersFromApi = async ()=>{
+    const response = await fetch("/api/players");
+      const data = await response.json();
+      return data
+  }
   useEffect(() => {
     let running = true;
     async function fetchPlayers() {
-      const response = await fetch("/api/players");
-      const data = await response.json();
+      const data = await fetchPlayersFromApi()
       if (!running) return;
       setPlayers(data);
     }
@@ -21,13 +26,16 @@ export default function Profile() {
   }, []);
 
   const createPlayer = async (player)=>{
-    const response = await fetch("/api/players", {
+     await fetch("/api/players", {
       method: 'POST',
       body: JSON.stringify(player),
       headers: {
         "Content-Type":"application/json"
       }
     })
+    setShowCreatePlayerModal(false)
+    const data = await fetchPlayersFromApi()
+      setPlayers(data);
   }
   return (
     <div className="d-flex flex-column align-items-center vh-100 p-4 gap-2">

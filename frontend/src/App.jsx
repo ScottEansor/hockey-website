@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -15,13 +15,22 @@ import ManageUsers from "./components/ManageUsers";
 
 function App() {
   const { userData, getMe, logout } = useUserData();
+  const navigate = useNavigate()
+  const handleLogin = async ()=>{
+    getMe()
+    navigate("/home")
+  }
+  const handleLogout = async ()=>{
+    logout()
+    navigate("/home")
+  }
   return (
     <div className="app-container">
-      <Nav userData={userData} onLogout={logout}/>
+      <Nav userData={userData} onLogout={handleLogout}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login onLogin={getMe} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/about" element={<About />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/contact" element={<Contact />} />

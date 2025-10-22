@@ -24,7 +24,7 @@ export default function PlayerCard({ player, hideParentButton }) {
             - finish rest of player card. 
           */}
           <div className="card-text">Level: {player.level}</div>
-          <div className="d-flex">
+          <div className="d-flex gap-2">
             <button
               className="btn btn-primary"
               onClick={() => setShowNotes(true)}

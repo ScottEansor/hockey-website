@@ -19,7 +19,7 @@ export default function Nav({ userData, onLogout }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={"navbar-collapse " + (isOpen ? "" : "collapse")}>
-          <ul className="navbar-nav">
+          <ul className="navbar-nav" onClick={()=>{setIsOpen(false)}}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/schedule">Schedule Now</NavLink>
