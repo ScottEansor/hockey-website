@@ -25,6 +25,10 @@ const playerSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    group: {
+        type: mongoose.Types.ObjectId,
+        ref: "group"
+    }
 })
 
 export default mongoose.model("player", playerSchema)

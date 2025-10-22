@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 import useUserData from "./hooks/useUserData";
 import ManagePlayers from "./components/ManagePlayers";
 import ManageUsers from "./components/ManageUsers";
+import ManageGroups from "./components/ManageGroups";
 
 function App() {
   const { userData, getMe, logout } = useUserData();
@@ -39,6 +40,7 @@ function App() {
         <Route path="/athome" element={<AtHome />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin/players" element={<ManagePlayers />}/>
+        <Route path="/admin/groups" element={<ManageGroups/>}/>
       </Routes>
     </div>
   );

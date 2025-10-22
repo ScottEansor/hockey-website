@@ -44,11 +44,11 @@ export default function Profile() {
       <Modal open={showCreatePlayerModal} onClose={()=>setShowCreatePlayerModal(false)} header={<h5>Add A New Player </h5>}>
       <PlayerRegistration onSubmit={createPlayer}/>
       </Modal>
-      <div>
+      
         {players?.map((player) => (
           <PlayerCard key={player._id} player={player} hideParentButton/>
         ))}
-      </div>
+
     </div>
   );
 }

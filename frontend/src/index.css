@@ -12,7 +12,9 @@
 .nav-options {
   gap: 1rem;
 }
-
+.navbar {
+      --bs-navbar-hover-color: #007bff;
+}
 .location-icon {
   color: #007bff;
 }

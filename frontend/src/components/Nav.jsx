@@ -6,7 +6,7 @@ export default function Nav({ userData, onLogout }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="navbar bg-body-tertiary sticky-top navbar-expand-md">
+    <nav className="navbar bg-body-tertiary sticky-top navbar-expand-md ">
       <div className="container-fluid">
         <div className="title navbar-brand">Eansor Coaching</div>
         <button
@@ -42,6 +42,7 @@ export default function Nav({ userData, onLogout }) {
                   <>
                     <DropDownLink to="/admin">Manage Users</DropDownLink>
                     <DropDownLink to="/admin/players">Manage Players</DropDownLink>
+                    <DropDownLink to="/admin/groups">Manage Groups</DropDownLink>
                   </>
                 ) : (
                   <DropDownLink to="/profile">Profile</DropDownLink>
