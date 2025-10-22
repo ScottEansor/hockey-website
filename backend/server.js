@@ -9,6 +9,7 @@ import session from "express-session"
 import userModel from "./models/user.js"
 import ConnectMongoDBSession from "connect-mongodb-session"
 import playerRoutes from "./routes/players.js"
+import groupRoutes from "./routes/groups.js"
 
 const app = express()
 const {
@@ -44,6 +45,7 @@ app.use("/api/videos", videoRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/players", playerRoutes)
+app.use("/api/groups", groupRoutes)
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 mongoose.connect(mongoURI)
