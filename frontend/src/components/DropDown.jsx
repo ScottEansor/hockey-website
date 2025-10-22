@@ -2,11 +2,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 export default function DropDown({ label, children }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = (e) => {
+     e.stopPropagation()
+    setIsOpen((prev) => !prev)
+  }
+
   return (
     <li className="nav-item dropdown">
       <a
         className="nav-link dropdown-toggle"
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={handleToggle}
         href="#"
         role="button"
         data-toggle="dropdown"
